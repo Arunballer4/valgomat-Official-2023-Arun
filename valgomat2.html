@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun sin VALGOMAT</title>
+    <link rel="stylesheet" href="valgomat2.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Arun sin VALGOMAT</h1>
+        </header>
+        <form id="valgomatForm">
+            <h2 id="question"></h2>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="answer" value="enig">
+                    <span>Enig</span>
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="uenig">
+                    <span>Uenig</span>
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button id="btnPrev" type="button">Forrige</button>
+                <button id="btnReset" type="button">Reset</button>
+                <button id="btnNext" type="button">Neste</button>
+            </div>
+        </form>
+        <h2></h2>
+        <p id="result"></p>
+    </div>
+    <footer>
+        <p>© Copyright Aruns valgomat 2023</p>
+    </footer>
+    <script defer src="valgomat2.js"></script>
+</body>
+
+</html>

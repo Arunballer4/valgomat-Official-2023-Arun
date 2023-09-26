@@ -1,0 +1,150 @@
+/* Generell stil for elementer */
+* {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-image: url('https://wallpaperaccess.com/full/7270403.gif');
+    background: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    color: aliceblue;
+}
+
+.container {
+    background-color: rgba(146, 133, 153, 0.5);
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px; /* Increase the maximum width */
+    width: 80%; /* Use a percentage width for responsiveness */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Stil for overskriften */
+header {
+    background-color: #e82ad5;
+    padding: 10px 0;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Stil for radio-knapper og svaralternativer */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Update styles for the radio buttons */
+label {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for custom radio buttons */
+label input {
+    margin-right: 5px;
+    width: 0; /* Hide the default radio button */
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Style for the "Enig" and "Uenig" buttons */
+/* Style for the "Enig" and "Uenig" buttons */
+label input + span {
+    width: 40px; /* Increase the width for better clickability */
+    height: 40px; /* Increase the height for better clickability */
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Add hover animation */
+    position: relative; /* Relative positioning for hover placement */
+}
+
+/* Style for the "Enig" button */
+label input[value="enig"] + span {
+    border-color: #4CAF50;
+    color: #4CAF50;
+    margin-left: auto; /* Push "Enig" button to the right */
+}
+    
+/* Style for the "Uenig" button */
+label input[value="uenig"] + span {
+    border-color: #FF5733;
+    color: #FF5733;
+    margin-right: auto; /* Push "Uenig" button to the left */
+}
+
+
+/* Style for the checked radio button */
+label input:checked + span {
+    background-color: transparent;
+    color: white;
+}
+
+/* Hover animation for radio buttons */
+label input + span:hover {
+    transform: scale(1.1); /* Scale the button on hover */
+}
+
+/* Stil for knappene */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #349a66;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e6c3e;
+}
+
+#btnPrev {
+    background-color: #ee2222;
+}
+
+#btnPrev:hover {
+    background-color: #d01c1c;
+}
+
+#btnReset {
+    background-color: #0d0a07;
+    display: none;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+}
+footer p{
+    font-size: 14px 
+    padding 15px 10px;
+}
