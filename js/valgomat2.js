@@ -1,3 +1,4 @@
+//variabel for alle spørsmålene til valgomaten
 const questions = [
     {
         question: 'Jeg støtter økt satsing på kollektivtransport',
@@ -133,5 +134,10 @@ function showResult() {
     });
 
     resultBox.innerHTML = resultHTML;
+    btnReset.style.display = "flex";
 }
 
+btnReset.addEventListener('click', reset)
+function reset() {
+    window.location.reload();
+}
