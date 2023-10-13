@@ -64,11 +64,13 @@ const btnPrev = document.getElementById('btnPrev');
 const btnReset = document.getElementById('btnReset');
 const inputForm = document.getElementById('valgomatForm');
 const resultBox = document.getElementById('result');
+const progressBar = document.getElementById('progress');
 
 btnNext.addEventListener('click', nextQuestion);
 btnPrev.addEventListener('click', prevQuestion);
 
 let qidx = 0;
+progressBar.value = 10
 questionT.innerHTML = questions[qidx].question;
 
 function nextQuestion() {
@@ -79,7 +81,9 @@ function nextQuestion() {
         if (qidx < questions.length) {
             radioChecked.checked = false;
             questionT.innerHTML = questions[qidx].question;
+            progressBar.value += 10
         } else {
+            progressBar.value += 10
             inputForm.style.display = 'none';
             showResult();
             btnReset.style.display = 'block'; // Show the Reset button
@@ -125,7 +129,7 @@ function showResult() {
     // Bygg resultat-HTML
     let resultHTML = "ditt resultat: Partier rangert etter poengsum:<br>";
     partyRanking.forEach((item, index) => {
-        resultHTML += `${index + 1}. ${item.party}: ${item.score} parti poeng ◕‿◕<br>`;
+        resultHTML += `${index + 1}. ${item.party}: ${item.score} parti poeng <br>`;
     });
 
     resultBox.innerHTML = resultHTML;
