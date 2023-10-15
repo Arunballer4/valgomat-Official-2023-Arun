@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arun sin VALGOMAT</title>
-    <link rel="stylesheet" href="/css/valgomat2.css">
+    <link rel="stylesheet" href="valgomat2.css">
 </head>
-/**
 <body>
+    <!--div til selve valgomaten-->
     <div class="container">
         <header>
             <h1>Arun sin VALGOMAT</h1>
@@ -25,21 +25,23 @@
                     <span>Uenig</span>
                 </label>
             </div>
-
+          <!--div til knappene som forrige og neste, som blir brukt i js css og html-->
             <div class="button-group">
                 <button id="btnPrev" type="button">Forrige</button>
                 <button id="btnNext" type="button">Neste</button>
             </div>
         </form>
         <h2></h2>
+        <!--div id til result der jeg har progressbar, og reset button, jeg bruker det også til og calle det i js.-->
         <p id="result"></p>
          <progress id="progress" value="52" max="100"></progress>
          <button id="btnReset" type="button">Reset</button>
     </div>
+    <!--enkel footer der jeg har navnet mitt som copyright-->
     <footer>
         <p>© Copyright Aruns valgomat 2023</p>
     </footer>
-    <script defer src="/js/valgomat2.js"></script>
+    <script defer src="valgomat2.js"></script>
 </body>
 
 </html>

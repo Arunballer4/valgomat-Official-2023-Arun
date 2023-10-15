@@ -1,4 +1,4 @@
-//variabel for alle spørsmålene til valgomaten
+//variabel for alle spørsmålene til valgomaten kan oppdateres dynmaisk
 const questions = [
     {
         question: 'Jeg støtter økt satsing på kollektivtransport',
@@ -47,6 +47,7 @@ const questions = [
     }
 ];
 
+// Initialisering av variabelen som holder oversikt over partienes poengsum.
 let partyScores = {
     MDG: 0,
     A: 0,
@@ -59,6 +60,7 @@ let partyScores = {
     V: 0
 };
 
+// Henting av HTML-elementer via bruk av ID.
 const questionT = document.getElementById('question');
 const btnNext = document.getElementById('btnNext');
 const btnPrev = document.getElementById('btnPrev');
@@ -67,14 +69,18 @@ const inputForm = document.getElementById('valgomatForm');
 const resultBox = document.getElementById('result');
 const progressBar = document.getElementById('progress');
 
+// Lyttere for knapper for å navigere gjennom spørsmålene.
 btnNext.addEventListener('click', nextQuestion);
 btnPrev.addEventListener('click', prevQuestion);
 
+// Initialisering av indeks for nåværende spørsmål og innstilling av verdien til en fremgangslinje.
 let qidx = 0;
-progressBar.value = 10
+progressBar.value = 10;
 questionT.innerHTML = questions[qidx].question;
 
+// Funksjon for å håndtere neste spørsmål.
 function nextQuestion() {
+    // Sjekker om en radioknapp er valgt.
     let radioChecked = document.querySelector('input[name="answer"]:checked');
     if (radioChecked) {
         calculateResult(qidx, radioChecked.value);
@@ -82,26 +88,28 @@ function nextQuestion() {
         if (qidx < questions.length) {
             radioChecked.checked = false;
             questionT.innerHTML = questions[qidx].question;
-            progressBar.value += 10
+            progressBar.value += 10;
         } else {
-            progressBar.value += 10
+            // Når alle spørsmål er besvart, vis resultatene og tilbakestill knappen vises.
+            progressBar.value += 10;
             inputForm.style.display = 'none';
             showResult();
-            btnReset.style.display = 'block'; // Show the Reset button
+            btnReset.style.display = 'block'; // Vis tilbakestillknappen
         }
     }
 }
 
+// Funksjon for å gå tilbake til forrige spørsmål.
 function prevQuestion() {
     if (qidx > 0) {
         qidx--;
         questionT.innerHTML = questions[qidx].question;
-        updateProgressBar(); // Update the progress bar when going back to the previous question
-        clearSelection(); // Clear the radio button selection
+        updateProgressBar(); // Oppdater fremgangslinjen når du går tilbake til forrige spørsmål
+        clearSelection(); // Fjern valget for radioknappen
     }
 }
 
-// Add this function to clear the radio button selection
+// Funksjon for å fjerne valget for radioknappen.
 function clearSelection() {
     const radioButtons = document.querySelectorAll('input[name="answer"]');
     radioButtons.forEach((radio) => {
@@ -109,6 +117,7 @@ function clearSelection() {
     });
 }
 
+// Funksjon for å beregne resultatet basert på svarene.
 function calculateResult(qidx, chosen) {
     let partyChoices = questions[qidx][chosen];
 
@@ -117,8 +126,9 @@ function calculateResult(qidx, chosen) {
     }
 }
 
+// Funksjon for å vise resultatet etter å ha besvart alle spørsmålene.
 function showResult() {
-    // Opprett et array av partier basert på poengsum
+    // Opprett en rangering av partier basert på poengsum
     let partyRanking = [];
     for (let party in partyScores) {
         partyRanking.push({ party: party, score: partyScores[party] });
@@ -128,16 +138,19 @@ function showResult() {
     partyRanking.sort((a, b) => b.score - a.score);
 
     // Bygg resultat-HTML
-    let resultHTML = "ditt resultat: Partier rangert etter poengsum:<br>";
+    let resultHTML = "Ditt resultat: Partier rangert etter poengsum:<br>";
     partyRanking.forEach((item, index) => {
-        resultHTML += `${index + 1}. ${item.party}: ${item.score} parti poeng <br>`;
+        resultHTML += `${index + 1}. ${item.party}: ${item.score} partipoeng<br>`;
     });
 
     resultBox.innerHTML = resultHTML;
     btnReset.style.display = "flex";
 }
 
-btnReset.addEventListener('click', reset)
+// Lytter for tilbakestillknappen
+btnReset.addEventListener('click', reset);
+
+// Funksjon for å tilbakestille spørreskjemaet og laste siden på nytt.
 function reset() {
     window.location.reload();
 }
